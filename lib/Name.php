@@ -10,7 +10,7 @@ interface Name extends Countable
 
     public function toArray(): array;
 
-    public function head(): Name;
+    public function head(): QualifiedName;
 
     public function tail(): Name;
 

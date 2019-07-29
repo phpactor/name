@@ -1,6 +1,6 @@
 {
-    "name": "phpactor/name",
-    "description": "Value objects and utilities for name specifiers",
+    "name": "phpactor/name-qualifier",
+    "description": "Value objects for specifying (class/function) names",
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,8 @@
     "require": {
     },
     "require-dev": {
-        "phpunit/phpunit": "~7.0"
+        "phpunit/phpunit": "~7.0",
+        "phpstan/phpstan": "^0.11.4"
     },
     "autoload": {
         "psr-4": {
@@ -25,7 +26,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "0.1.x-dev"
         }
     }
 }

@@ -44,12 +44,15 @@ final class QualifiedName implements Name
         return FullyQualifiedName::fromQualifiedName($this);
     }
 
-    public function head(): Name
+    public function head(): QualifiedName
     {
         $parts = $this->parts;
         return new self([array_pop($parts)]);
     }
 
+    /**
+     * @return QualifiedName
+     */
     public function tail(): Name
     {
         $parts = $this->parts;
@@ -72,6 +75,9 @@ final class QualifiedName implements Name
         return count($this->parts);
     }
 
+    /**
+     * @return QualifiedName
+     */
     public function prepend(Name $name): Name
     {
         $parts = $this->parts;
@@ -79,6 +85,9 @@ final class QualifiedName implements Name
         return new self($parts);
     }
 
+    /**
+     * @return QualifiedName
+     */
     public function append(Name $name): Name
     {
         $parts = $this->parts;

@@ -37,14 +37,33 @@ final class FullyQualifiedName implements Name
         return $this->qualifiedName->__toString();
     }
 
-    public function head(): Name
+    public function head(): QualifiedName
     {
         return $this->qualifiedName->head();
     }
 
+    /**
+     * @return FullyQualifiedName
+     */
     public function tail(): Name
     {
-        return $this->qualifiedName->tail();
+        return new self($this->qualifiedName->tail());
+    }
+
+    /**
+     * @return FullyQualifiedName
+     */
+    public function prepend(Name $name): Name
+    {
+        return new self($this->qualifiedName->prepend($name));
+    }
+
+    /**
+     * @return FullyQualifiedName
+     */
+    public function append(Name $name): Name
+    {
+        return new self($this->qualifiedName->append($name));
     }
 
     public function isDescendantOf(Name $name): bool
@@ -60,15 +79,5 @@ final class FullyQualifiedName implements Name
     public function count(): int
     {
         return $this->qualifiedName->count();
-    }
-
-    public function prepend(Name $name): Name
-    {
-        return $this->qualifiedName->prepend($name);
-    }
-
-    public function append(Name $name): Name
-    {
-        return $this->qualifiedName->append($name);
     }
 }
