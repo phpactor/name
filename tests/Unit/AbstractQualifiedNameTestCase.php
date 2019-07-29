@@ -111,6 +111,20 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
         $this->assertCount(1, $this->createFromArray(['1']));
     }
 
+    public function testPrepend()
+    {
+        $one = $this->createFromString('Three\\Four');
+        $two = $this->createFromString('One\\Two');
+        $this->assertEquals('One\\Two\\Three\\Four', $one->prepend($two)->__toString());
+    }
+
+    public function testAppend()
+    {
+        $one = $this->createFromString('Three\\Four');
+        $two = $this->createFromString('One\\Two');
+        $this->assertEquals('One\\Two\\Three\\Four', $two->append($one)->__toString());
+    }
+
     public function testToArray()
     {
         $this->assertEquals(

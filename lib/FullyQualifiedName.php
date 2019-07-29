@@ -61,4 +61,14 @@ final class FullyQualifiedName implements Name
     {
         return $this->qualifiedName->count();
     }
+
+    public function prepend(Name $name): Name
+    {
+        return $this->qualifiedName->prepend($name);
+    }
+
+    public function append(Name $name): Name
+    {
+        return $this->qualifiedName->append($name);
+    }
 }

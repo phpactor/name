@@ -17,4 +17,8 @@ interface Name extends Countable
     public function isDescendantOf(Name $name): bool;
 
     public function count(): int;
+
+    public function prepend(Name $name): Name;
+
+    public function append(Name $name): Name;
 }

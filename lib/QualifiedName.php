@@ -71,4 +71,18 @@ final class QualifiedName implements Name
     {
         return count($this->parts);
     }
+
+    public function prepend(Name $name): Name
+    {
+        $parts = $this->parts;
+        array_unshift($parts, ...$name->toArray());
+        return new self($parts);
+    }
+
+    public function append(Name $name): Name
+    {
+        $parts = $this->parts;
+        $parts = array_merge($parts, $name->toArray());
+        return new self($parts);
+    }
 }
