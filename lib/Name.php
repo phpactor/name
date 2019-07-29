@@ -2,11 +2,19 @@
 
 namespace Phpactor\Name;
 
-interface Name
+use Countable;
+
+interface Name extends Countable
 {
     public function __toString(): string;
+
+    public function toArray(): array;
 
     public function head(): Name;
 
     public function tail(): Name;
+
+    public function isDescendantOf(Name $name): bool;
+
+    public function count(): int;
 }

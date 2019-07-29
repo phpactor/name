@@ -56,4 +56,19 @@ final class QualifiedName implements Name
         array_pop($parts);
         return new self($parts);
     }
+
+    public function isDescendantOf(Name $name): bool
+    {
+        return array_slice($this->parts, 0, $name->count()) === $name->toArray();
+    }
+
+    public function toArray(): array
+    {
+        return $this->parts;
+    }
+
+    public function count(): int
+    {
+        return count($this->parts);
+    }
 }

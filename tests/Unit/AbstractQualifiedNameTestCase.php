@@ -4,6 +4,7 @@ namespace Phpactor\Name\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Phpactor\Name\Exception\InvalidName;
+use Phpactor\Name\Name;
 use Phpactor\Name\QualifiedName;
 
 abstract class AbstractQualifiedNameTestCase extends TestCase
@@ -93,11 +94,42 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
         $this->assertEquals('Foobar\\Barbar\\Barfoo', $original->__toString());
     }
 
+    public function testIsDescendantOf()
+    {
+        $one = $this->createFromString('One\\Two');
+        $this->assertTrue(
+            $this->createFromString('One\\Two\\Three')->isDescendantOf($one)
+        );
+        $this->assertFalse(
+            $this->createFromString('One\\Four\\Three')->isDescendantOf($one)
+        );
+    }
+
+    public function testIsCountable()
+    {
+        $this->assertCount(3, $this->createFromArray(['1', '2', '3']));
+        $this->assertCount(1, $this->createFromArray(['1']));
+    }
+
+    public function testToArray()
+    {
+        $this->assertEquals(
+            ['One', 'Two'],
+            $this->createFromString('One\\Two')->toArray()
+        );
+    }
+
+    /**
+     * @return Name
+     */
     protected function createFromArray(array $parts)
     {
         return QualifiedName::fromArray($parts);
     }
 
+    /**
+     * @return Name
+     */
     protected function createFromString(string $string)
     {
         return QualifiedName::fromString($string);

@@ -46,4 +46,19 @@ final class FullyQualifiedName implements Name
     {
         return $this->qualifiedName->tail();
     }
+
+    public function isDescendantOf(Name $name): bool
+    {
+        return $this->qualifiedName->isDescendantOf($name);
+    }
+
+    public function toArray(): array
+    {
+        return $this->qualifiedName->toArray();
+    }
+
+    public function count(): int
+    {
+        return $this->qualifiedName->count();
+    }
 }
