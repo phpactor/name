@@ -1,5 +1,5 @@
 {
-    "name": "phpactor/name-qualifier",
+    "name": "phpactor/name-specification",
     "description": "Value objects for specifying (class/function) names",
     "license": "MIT",
     "authors": [
