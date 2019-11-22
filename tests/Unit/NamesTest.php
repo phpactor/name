@@ -10,7 +10,7 @@ class NamesTest extends TestCase
 {
     public function testCreateFromArray()
     {
-        $names = Names::fromArray([
+        $names = Names::fromNames([
             QualifiedName::fromString('Hello'),
             QualifiedName::fromString('Goodbye')
         ]);
@@ -20,7 +20,7 @@ class NamesTest extends TestCase
 
     public function testCanIterate()
     {
-        $names = Names::fromArray([
+        $names = Names::fromNames([
             QualifiedName::fromString('Hello'),
             QualifiedName::fromString('Goodbye')
         ]);

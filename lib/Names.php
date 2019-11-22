@@ -5,6 +5,7 @@ namespace Phpactor\Name;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use Phpactor\Name\Name;
 
 class Names implements Countable, IteratorAggregate
 {
@@ -18,7 +19,7 @@ class Names implements Countable, IteratorAggregate
         $this->names = $names;
     }
 
-    public static function fromArray(array $array)
+    public static function fromNames(array $array)
     {
         return new self(...$array);
     }
@@ -31,9 +32,6 @@ class Names implements Countable, IteratorAggregate
         return count($this->names);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getIterator(): ArrayIterator
     {
         return new ArrayIterator($this->names);
