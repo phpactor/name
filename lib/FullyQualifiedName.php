@@ -37,12 +37,17 @@ final class FullyQualifiedName implements Name
         return $this->qualifiedName->__toString();
     }
 
+    /**
+     * Reutrn the last element of the name (e.g. the class's short name)
+     */
     public function head(): QualifiedName
     {
         return $this->qualifiedName->head();
     }
 
     /**
+     * Return the "namespace" portion of the name.
+     *
      * @return FullyQualifiedName
      */
     public function tail(): Name
