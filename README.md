@@ -1,5 +1,5 @@
 Names
 ==================
 
-[![Build Status](https://travis-ci.org/phpactor/name.svg?branch=master)](https://travis-ci.org/phpactor/name)
+![CI](https://github.com/phpactor/name/workflows/CI/badge.svg)
 [![StyleCI](https://styleci.io/repos/<repo-id>/shield)](https://styleci.io/repos/<repo-id>)
