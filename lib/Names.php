@@ -5,7 +5,6 @@ namespace Phpactor\Name;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
-use Phpactor\Name\Name;
 
 class Names implements Countable, IteratorAggregate
 {

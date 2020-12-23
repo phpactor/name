@@ -2,9 +2,6 @@
 
 namespace Phpactor\Name;
 
-use Phpactor\Name\Exception\InvalidName;
-use Phpactor\Name\FullyQualifiedName;
-
 final class FullyQualifiedName implements Name
 {
     /**
