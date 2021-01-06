@@ -4,3 +4,5 @@ phpunit.xml
 composer.phar
 .php_cs.cache
 .phpunit.result.cache
+/.vscode
+/vendor
