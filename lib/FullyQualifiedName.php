@@ -14,6 +14,11 @@ final class FullyQualifiedName implements Name
         $this->qualifiedName = $qualifiedName;
     }
 
+    public function __toString(): string
+    {
+        return $this->qualifiedName->__toString();
+    }
+
     public static function fromArray(array $parts): FullyQualifiedName
     {
         return new self(QualifiedName::fromArray($parts));
@@ -27,11 +32,6 @@ final class FullyQualifiedName implements Name
     public static function fromQualifiedName(QualifiedName $qualfifiedName): FullyQualifiedName
     {
         return new self($qualfifiedName);
-    }
-
-    public function __toString(): string
-    {
-        return $this->qualifiedName->__toString();
     }
 
     /**

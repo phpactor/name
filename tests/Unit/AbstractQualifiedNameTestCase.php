@@ -12,7 +12,7 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
     /**
      * @dataProvider provideCreateFromArray
      */
-    public function testCreateFromArray(array $parts, string $expected)
+    public function testCreateFromArray(array $parts, string $expected): void
     {
         $this->assertEquals($expected, $this->createFromArray($parts));
     }
@@ -33,7 +33,7 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
     /**
      * @dataProvider provideCreateFromString
      */
-    public function testCreateFromString(string $string, string $expected)
+    public function testCreateFromString(string $string, string $expected): void
     {
         $this->assertEquals($expected, $this->createFromString($string));
     }
@@ -61,13 +61,13 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
         ];
     }
 
-    public function testThrowsExceptionIfNameIsEmpty()
+    public function testThrowsExceptionIfNameIsEmpty(): void
     {
         $this->expectException(InvalidName::class);
         QualifiedName::fromString('');
     }
 
-    public function testHead()
+    public function testHead(): void
     {
         $original = $this->createFromArray([
             'Foobar',
@@ -76,11 +76,12 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
         $this->assertEquals(
             'Barfoo',
             $original->head()->__toString()
-        );;
+        );
+        ;
         $this->assertEquals('Foobar\\Barfoo', $original->__toString());
     }
 
-    public function testTail()
+    public function testTail(): void
     {
         $original = $this->createFromArray([
             'Foobar',
@@ -90,11 +91,12 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
         $this->assertEquals(
             'Foobar\\Barbar',
             $original->tail()->__toString()
-        );;
+        );
+        ;
         $this->assertEquals('Foobar\\Barbar\\Barfoo', $original->__toString());
     }
 
-    public function testIsDescendantOf()
+    public function testIsDescendantOf(): void
     {
         $one = $this->createFromString('One\\Two');
         $this->assertTrue(
@@ -105,27 +107,27 @@ abstract class AbstractQualifiedNameTestCase extends TestCase
         );
     }
 
-    public function testIsCountable()
+    public function testIsCountable(): void
     {
         $this->assertCount(3, $this->createFromArray(['1', '2', '3']));
         $this->assertCount(1, $this->createFromArray(['1']));
     }
 
-    public function testPrepend()
+    public function testPrepend(): void
     {
         $one = $this->createFromString('Three\\Four');
         $two = $this->createFromString('One\\Two');
         $this->assertEquals('One\\Two\\Three\\Four', $one->prepend($two)->__toString());
     }
 
-    public function testAppend()
+    public function testAppend(): void
     {
         $one = $this->createFromString('Three\\Four');
         $two = $this->createFromString('One\\Two');
         $this->assertEquals('One\\Two\\Three\\Four', $two->append($one)->__toString());
     }
 
-    public function testToArray()
+    public function testToArray(): void
     {
         $this->assertEquals(
             ['One', 'Two'],

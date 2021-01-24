@@ -24,6 +24,11 @@ final class QualifiedName implements Name
         $this->parts = $parts;
     }
 
+    public function __toString(): string
+    {
+        return implode(self::NAMESPACE_SEPARATOR, $this->parts);
+    }
+
     public static function fromArray(array $parts): QualifiedName
     {
         return new self($parts);
@@ -32,11 +37,6 @@ final class QualifiedName implements Name
     public static function fromString(string $string): QualifiedName
     {
         return new self(array_filter(explode(self::NAMESPACE_SEPARATOR, $string)));
-    }
-
-    public function __toString(): string
-    {
-        return implode(self::NAMESPACE_SEPARATOR, $this->parts);
     }
 
     public function toFullyQualifiedName(): FullyQualifiedName
