@@ -8,7 +8,7 @@ use Phpactor\Name\QualifiedName;
 
 class NamesTest extends TestCase
 {
-    public function testCreateFromArray()
+    public function testCreateFromArray(): void
     {
         $names = Names::fromNames([
             QualifiedName::fromString('Hello'),
@@ -18,7 +18,7 @@ class NamesTest extends TestCase
         self::assertCount(2, $names);
     }
 
-    public function testCanIterate()
+    public function testCanIterate(): void
     {
         $names = Names::fromNames([
             QualifiedName::fromString('Hello'),
